@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&family=Roboto:wght@100&display=swap"
+        rel="stylesheet">
+
+    <!-- Links -->
+    <script src="/prism.js"></script>
+    <link rel="stylesheet" href="/prism.css">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/images/github_PNG83.png" type="image/x-icon">
+
+    <style>
+        pre{
+            border-radius: 10px;
+        }
+    </style>
+
+    <title>Git and Git Hub Cheatsheet</title>
+</head>
+
+<body>
+    <nav>
+        <span class="logo"><img src="/images/copy.png" alt="Cheatsheet logo"></span>
+
+        <div class="content center">
+            Git and Git Hub Cheatsheet
+        </div>
+    </nav>
+
+    <div class="container">
+        <ol>
+            <li>Configuring name and email in Git</li>
+            <pre class="language-git"><code>git config --global user.name &lt;Your Name&gt;</code></pre>
+            <pre class="language-git"><code>git config --global user.email &lt;Your Email&gt;</code></pre>
+            <small>To Check Whether it is set or not:-</small>
+            <pre class="language-git"><code>git config --global user.name</code></pre>
+            <pre class="language-git"><code>git config --global user.email</code></pre>
+
+            <br>
+            <hr>
+            <br>
+
+            <li>Initializing Empty Git Repository</li>
+            <pre class="language-git"><code>git init</code></pre>
+            <small>it creates a folder, you can check it by </small><pre class="language-git"><code>ls -lart</code></pre>
+
+            <br>
+            <hr>
+            <br>
+            
+            <li>Checking the status</li>
+            <pre class="language-git"><code>git status</code></pre><br>
+            <img src="/images/img1.png" alt="image" width="685vw" style="border-radius: 5px;">
+            <small>To see a short status:-</small>
+            <pre class="language-git"><code>git status -s</code></pre><br>
+            <table style="background: black;">
+                <tr>
+                    <td style="color: green;">M</td> <td></td> <td></td> <td style="color: white;">&lt;filename&gt;</td> <td></td> <td style="color: lightgrey;">//Modified in Staging area</td>
+                </tr>
+                <tr>
+                    <td></td> <td style="color: red;">M</td> <td></td> <td style="color: white;">&lt;filename&gt;</td> <td></td> <td style="color: lightgrey">//Modified in Working Tree</td>
+                </tr>
+                <tr>
+                    <td style="color: green;">M</td> <td style="color: red;">M</td> <td></td> <td style="color: white;">&lt;filename&gt;</td> <td></td> <td style="color: lightgrey">//Modified in both Working Tree and Staging area</td>
+                </tr>
+            </table>
+
+            <br>
+            <hr>
+            <br>
+            
+            <li style="margin-top:20px;">To take the file from untracked to Staging:-</li>
+            <pre class="language-git"><code>git add &lt;filename&gt;</code></pre>
+            <small>To add all files at once:</small>
+            <pre class="language-git"><code>git add -A</code></pre>
+            <small>Now, the file has come on the staging stage</small>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Initial Commit:-</li>
+            <pre class="language-git"><code>git commit -m "&lt;Your Commit Message&gt;"</code></pre>
+            <p>Another way through VIM editor:-</p>
+            <pre class="language-git"><code>git commit</code></pre>
+            <small>To write anything (commit message), press:</small><pre class="language-git"><code>I</code></pre>
+            <small>Write the commit message there on the top</small>
+            <pre class="language-git"><code>Initial commit</code></pre>
+            <small>To exit the editor, press these keys one by one:</small><pre class="language-git"><code>Esc, :, w, q, Enter</code></pre>
+
+            <br>
+            <hr>
+            <br>
+            
+            <li style="margin-top:20px;">To match a file or many files with the working tree with the last commit:-</li>
+            <pre class="language-git"><code>git checkout &lt;filename&gt;</code></pre>
+            <small>To do this for all files at once:-</small>
+            <pre class="language-git"><code>git checkout -f</code></pre>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">To see the commit logs by different authors:-</li>
+            <pre class="language-git"><code>git log</code></pre>
+            <small>Filtering outputs of commit log:-</small>
+            <pre class="language-git"><code>git log -p -&lt;no. of commits&gt;</code></pre>
+            <small>By doing this, it will also show all the changes</small>
+            <small>Press 'Q' to quit</small>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Comparing and seeing Difference:-</li><br>
+            <ul>
+                <li>Between the staging area and working tree:-</li>
+                <pre class="language-git"><code>git diff</code></pre>
+
+                <li>Between the staging area and last commit:-</li>
+                <pre class="language-git"><code>git diff --staged</code></pre>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Directly Commiting from modified file:-</li>
+            <pre class="language-git"><code>git commit -a -m "&lt;Your Commit Message&gt;"</code></pre>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Removing files:-</li><br>
+            <ul>
+                <li>From working tree and staging area:-</li>
+                <pre class="language-git"><code>git rm &lt;filename&gt;</code></pre>
+
+                <li>Only from the staging area:-</li>
+                <pre class="language-git"><code>git rm --cached &lt;filename&gt;</code></pre>
+            </ul>
+            <small>After deleting file, NOTE to commit also to make the status normal</small>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Ignoring files:-</li><br>
+            <small>Make a file from GIT Bash only as in windows it is not possible directly</small>
+            <pre class="language-git"><code>touch .gitignore</code></pre>
+            In .gitignore file, write the files/extensions of files/file path/directory to ignore:-
+            <ul><br>
+                <li>foldername/ - This will do for this folder</li>
+                <li>filename - This will do for all files of this name</li>
+                <li>*.extension - This will do for all files of this extension</li>
+                <li>foldername/filename - This will do for the file in the folder</li>
+                <li>/filename - This will do it for the file in the root folder</li>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Branches:-</li><br>
+            <ul>
+                <li style="margin-top:20px;">Seeing how many branches are there:-</li><br>
+                <pre class="language-git"><code>git branch</code></pre>
+    
+                <li style="margin-top:20px;">Creating new branch:-</li><br>
+                <pre class="language-git"><code>git branch &lt;branchname&gt;</code></pre>
+
+                <li style="margin-top:20px;">Switching branches:-</li><br>
+                <pre class="language-git"><code>git checkout &lt;branchname&gt;</code></pre>
+
+                <li style="margin-top:20px;">Merging branches:-</li><br>
+                <pre class="language-git"><code>git checkout &lt;master&gt;</code></pre>
+                <pre class="language-git"><code>git merge &lt;branchname&gt;</code></pre>
+
+                <li style="margin-top:20px;">Creating new branch and switching to it:-</li><br>
+                <pre class="language-git"><code>git checkout -b &lt;branchname&gt;</code></pre>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Remote repository:-</li><br>
+            <ul>
+                <li>Adding this to remote repository:-</li>
+                <pre class="language-git"><code>git remote add origin &lt;repository-URL or SSH&gt;</code></pre>
+
+                <li>Checking remotes:-</li>
+                <pre class="language-git"><code>git remote</code></pre>
+
+                <li>Getting fetch and push URLs:-</li>
+                <pre class="language-git"><code>git remote -v</code></pre>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Pushing to remote repository:-</li>
+            <ul>
+                <pre class="language-git"><code>git push &lt;remote(origin)&gt; &lt;branchname&gt;</code></pre>
+                <small>To push according to the -u command:-</small>
+                <pre class="language-git"><code>git push</code></pre>
+                <small>TO push every time to a branch every time through 'git push' command:-</small>
+                <pre class="language-git"><code>git push -u &lt;branchname&gt;</code></pre>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Pulling:-</li>
+            <ul>
+                <small>pulling all the changes done by anyone in the repository</small>
+                <pre class="language-git"><code>git pull &lt;remote(origin)&gt; &lt;branchname&gt;</code></pre>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Checking for changes done by us:-</li>
+            <ul>
+                <li style="margin-top:20px;">for changes in MODIFIED file:-</li>
+                <small>Getting changes in all files:-</small>
+                <pre class="language-git"><code>git diff</code></pre>
+                <small>Getting changes for a file:-</small>
+                <pre class="language-git"><code>git diff &lt;filename&gt;</code></pre>
+
+                <li style="margin-top:20px;">For changes in STAGED area:-</li>
+                <small>Getting changes in all files:-</small>
+                <pre class="language-git"><code>git diff --staged</code></pre>
+                <small>Getting changes for a file:-</small>
+                <pre class="language-git"><code>git diff --staged &lt;filename&gt;</code></pre>
+            </ul>
+            <small>NOTE: write filename along with the extension</small>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Unstaging:-</li>
+            <ul>
+                <pre class="language-git"><code>git reset &lt;filename&gt;</code></pre>
+                <small>For changing the file,</small>
+                <pre class="language-git"><code>git checkout &lt;filename&gt;</code></pre>
+            </ul>
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Adding Computer Access:-</li><br>
+            <ul>
+                <li>Go to 'Settings'</li>
+                <li>Go to 'SSH and GPG keys'</li>
+                <li>Click on 'generating SSH keys'</li>
+                <li>Click on 'Generating a new SSH key and adding it to the ssh-agent'</li>
+                <li>Do the steps given on the page</li>
+            </ul>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">To change URL:-</li><br>
+            <pre class="language-git"><code>git remote set-url origin &lt;URL(SSH or HTTPS or etc.)&gt;</code></pre>
+
+            <br>
+            <hr>
+            <br>
+
+            <li style="margin-top:20px;">Cloning (It is possible only for public repos):-</li><br>
+            <small>Open GIT Bash in some another folder</small>
+            <pre class="language-git"><code>git clone &lt;URL of Repo&gt; &lt;foldername&gt;</code></pre>
+            <small>Without the foldername, it will clone in a folder with a name of the repo</small>
+        </ol>
+    </div>
+</body>
+
+</html>
